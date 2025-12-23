@@ -275,12 +275,19 @@ The `Generate AO Map` node uses PyTorch and automatically uses CUDA when availab
 
 ---
 
+## Known Issues
+
+- **BC5 DDS Loading**: BC5-compressed images can be saved but not loaded right now unfortunately. Attempting to load them will result in an error and needing to restart ComfyUI.
+
+---
+
 ## Acknowledgements
 
 - **[DeepBump-dml](https://github.com/lilquail/DeepBump-dml)**: ML-powered PBR map generation, forked from [DeepBump](https://github.com/HugoTini/DeepBump) by Hugo Tini (GPLv3)
 - **[Texconv-Custom-DLL](https://github.com/matyalatte/Texconv-Custom-DLL)** by matyalatte: Cross-platform texconv DLL for fast in-process DDS conversion (MIT)
 - **[DirectXTex](https://github.com/microsoft/DirectXTex)** by Microsoft: DDS handling via `texconv.exe` fallback (MIT)
 - **[Blending in Detail](https://blog.selfshadow.com/publications/blending-in-detail/)** by Colin Barré-Brisebois and Stephen Hill: Normal map blending algorithms
+- **[chaiNNer](https://github.com/chaiNNer-org/chaiNNer)**: Inspiration for a lot of the nodes
 
 ---
 

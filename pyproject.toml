@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-leputen-utils"
 version = "1.0.0"
-description = "A collection of utility nodes for ComfyUI designed for game development and batch processing"
+description = "Game development toolkit for ComfyUI with DDS (DirectDraw Surface) support, PBR map generation and batch processing"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
