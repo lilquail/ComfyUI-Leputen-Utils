@@ -33,8 +33,8 @@ Repository = "https://github.com/lilquail/ComfyUI-Leputen-Utils"
 Issues = "https://github.com/lilquail/ComfyUI-Leputen-Utils/issues"
 
 [tool.comfy]
-PublisherId = "@lilquail"
-DisplayName = "Leputen Utils"
+PublisherId = "lilquail"
+DisplayName = "ComfyUI-Leputen-Utils"
 Icon = "https://raw.githubusercontent.com/lilquail/ComfyUI-Leputen-Utils/main/Leputen.png"
 
 [build-system]
