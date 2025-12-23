@@ -1,0 +1,92 @@
+[project]
+name = "comfyui-leputen-utils"
+version = "1.0.0"
+description = "A collection of utility nodes for ComfyUI designed for game development and batch processing"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Leputen IV", email = "lilquail@users.noreply.github.com" }]
+keywords = ["comfyui", "dds", "pbr", "textures", "game-dev", "batch-processing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = ["scipy", "opencv-python", "onnxruntime", "imageio"]
+
+[project.optional-dependencies]
+dev = ["ruff>=0.1.0"]
+gpu = [
+    "onnxruntime-directml", # For GPU-accelerated DeepBump on Windows
+]
+
+[project.urls]
+Homepage = "https://github.com/lilquail/ComfyUI-Leputen-Utils"
+Repository = "https://github.com/lilquail/ComfyUI-Leputen-Utils"
+Issues = "https://github.com/lilquail/ComfyUI-Leputen-Utils/issues"
+
+[tool.comfy]
+PublisherId = "@lilquail"
+DisplayName = "Leputen Utils"
+Icon = "https://raw.githubusercontent.com/lilquail/ComfyUI-Leputen-Utils/main/Leputen.png"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+# --- Ruff Configuration ---
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+indent-width = 4
+
+# Exclude common directories
+exclude = [".git", ".venv", "venv", "__pycache__"]
+
+[tool.ruff.lint]
+# Enable recommended rules
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+]
+
+# Ignore specific rules that conflict with ComfyUI patterns
+ignore = [
+    "E501",   # Line too long (handled by formatter)
+    "N802",   # Function name should be lowercase (ComfyUI uses INPUT_TYPES, etc.)
+    "N803",   # Argument name should be lowercase (ComfyUI convention)
+    "N806",   # Variable in function should be lowercase (ComfyUI convention)
+    "B008",   # Do not perform function call in argument defaults (ComfyUI pattern)
+    "SIM102", # Use single if statement (can reduce readability)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403"] # Allow unused imports in __init__.py
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# --- Type Checking (optional) ---
+[tool.pyright]
+include = ["nodes", "core"]
+exclude = ["vendor", "bin"]
+pythonVersion = "3.9"
+typeCheckingMode = "basic"
+reportMissingImports = true
+reportMissingTypeStubs = false
